@@ -119,7 +119,7 @@
                 formData[field.name] = document.querySelector(`[name="${field.name}"]`).value;
             });
 
-            const codeSnippet = `// Your generated code snippet const data = ${JSON.stringify(formData)};
+            const codeSnippet = `
             {% assign deal_alias = "${formData.deal_alias}" %}
             {% assign deal_image_url = ${formData.deal_image_url} %}
             {% assign deal_title = "${formData.deal_title}" %}
