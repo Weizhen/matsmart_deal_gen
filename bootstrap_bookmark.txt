@@ -1,0 +1,8 @@
+javascript:(function(){
+  var script = document.createElement('script');
+  script.src = 'https://cdn.jsdelivr.net/gh/Weizhen/matsmart_deal_gen@PRODV0/deal_gen.js';
+  script.onload = function() {
+    console.log('External script loaded and executed.');
+  };
+  document.body.appendChild(script);
+})();
