@@ -85,7 +85,7 @@
                     input.type = field.type;
                     input.name = field.name;
                     input.placeholder = field.label;
-                    input.style.width = '100%'; // Full width of the container
+                    input.style.width = '100%';
                     input.style.boxSizing = 'border-box'; // Include padding and border in the width
                     input.style.marginBottom = '10px'; // Add spacing between fields
 
