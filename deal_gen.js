@@ -12,6 +12,8 @@
                 { type: 'text', label: 'deal_max_purchase', name: 'deal_max_purchase' },
                 { type: 'text', label: 'deal_savings_percentage', name: 'deal_savings_percentage' },
                 { type: 'date', label: 'deal_end_date', name: 'deal_end_date' },
+                { type: 'select', label: 'deal_end_hour', name: 'deal_end_hour', options: ['0', '1', '2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23'] },
+                { type: 'text', label: 'deal_params', name: 'deal_params' },
                 { type: 'select', label: 'deal_type', name: 'deal_type', options: ['daily', 'normal'] }
             ]
         };
@@ -121,16 +123,17 @@
 
             const codeSnippet = `
             {% assign deal_alias = "${formData.deal_alias}" %}
-            {% assign deal_image_url = ${formData.deal_image_url} %}
+            {% assign deal_image_url = "${formData.deal_image_url}" %}
             {% assign deal_title = "${formData.deal_title}" %}
             {% assign deal_quantity = ${formData.deal_quantity} %}
             {% assign deal_price = ${formData.deal_price} %}
-            {% assign deal_comparison_price = "${formData.deal_comparison_price} €/kg" %}
+            {% assign deal_comparison_price = "${formData.deal_comparison_price}" %}
             {% assign deal_max_purchase = ${formData.deal_max_purchase} %}
             {% assign deal_type = "${formData.deal_type}" %}
-            {% assign deal_end_date = "${formData.deal_end_date}" %}
+            {% assign deal_end_date = "${formData.deal_end_date}T${formData.deal_end_hour}:00:00+01:00" %}
             {% assign deal_savings_percentage = ${formData.deal_savings_percentage} %}
-            {{content_blocks.\${deal_render} | id: 'cb3'}}
+            {% assign deal_params = "${formData.deal_params}" %}
+            {{content_blocks.\${deal_render}}}
             `;
 
             // Copy code snippet to clipboard
